@@ -37,8 +37,9 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 			{
 				int x = va_arg(args, int);
+				int len = strlen(x);
 
-				write(STDOUT_FILENO, &x, 1); count++;
+				write(STDOUT_FILENO, &x, len); count += len;
 			}
 		}
 		else
