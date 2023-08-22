@@ -49,12 +49,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-/**
- * main - entry point
- * Return: nothing
- */
-int main(void)
-{
-	_printf("The man who score Grade %c, is %s\n", 'A', "James");
-	return (0);
-}
