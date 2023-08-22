@@ -37,9 +37,10 @@ int _printf(const char *format, ...)
 			else if (*format == 'd' || *format == 'i')
 			{
 				int x = va_arg(args, int);
-				int len = strlen(x);
+				char str[32];
+				int len = sprintf(str, "%d", x);
 
-				write(STDOUT_FILENO, &x, len); count += len;
+				write(STDOUT_FILENO, str, len); count += len;
 			}
 		}
 		else
