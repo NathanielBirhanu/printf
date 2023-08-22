@@ -8,10 +8,10 @@
  */
 int _printf(const char *format, ...)
 {
+	int count = 0;
 	va_list args;
 
 	va_start(args, format);
-	int count = 0;
 
 	while (*format != '\0')
 	{
@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '%')
 			{
-				write(STDOUT_FILEN, "%", 1);
+				write(STDOUT_FILENO, "%", 1);
 				count++;
 			}
 			else if (*format == 'c')
@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 				write(STDOUT_FILENO, &ch, 1);
 				count++;
 			}
-			else if (*forma == 's')
+			else if (*format == 's')
 			{
 				char *str = va_arg(args, char *);
 				int len = strlen(str);
